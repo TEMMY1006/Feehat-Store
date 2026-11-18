@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop fashion, provisions, drinks and rentals at Omoola Fashion Design & More in Ibafo, Ogun State.">
+  <title>Omoola Fashion Design & More</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="topbar">
+    Welcome to Omoola Fashion Design & More
+    <span>Serving Ibafo and nearby areas</span>
+  </div>
+
+  <header class="header">
+    <a href="#" class="brand">
+      <span class="brand-mark">O</span>
+      <span>OMOOLA<small>FASHION DESIGN & MORE</small></span>
+    </a>
+    <form class="search" id="searchForm">
+      <input id="searchInput" type="search" placeholder="Search fashion, drinks, provisions..." aria-label="Search products">
+      <button type="submit">Search</button>
+    </form>
+    <div class="header-actions">
+      <button class="nav-button" id="ordersButton">My Orders</button>
+      <button class="cart-button" id="cartButton">
+        🛒 Cart <span id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="categories" aria-label="Shop categories">
+    <button class="category active" data-category="All">All Products</button>
+    <button class="category" data-category="Fashion">Fashion</button>
+    <button class="category" data-category="Provisions">Provisions</button>
+    <button class="category" data-category="Drinks">Drinks</button>
+    <button class="category" data-category="Rentals">Rentals</button>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">WELCOME TO OMOOLA</span>
+        <h1>Good finds.<br>Everyday needs.</h1>
+        <p>Beautiful fashion, everyday provisions, refreshing drinks and convenient rentals — all in one place.</p>
+        <button class="primary-button" id="shopNow">Start Shopping →</button>
+        <div class="hero-notes">
+          <span>✓ Easy ordering</span>
+          <span>✓ Friendly service</span>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=85" alt="Clothing and retail boutique">
+        <div class="hero-label"><strong>One shop, more choices.</strong><br>Shop what you need.</div>
+      </div>
+    </section>
+
+    <section class="service-strip">
+      <div><span>👗</span><p><strong>Fashion</strong><small>Style your way</small></p></div>
+      <div><span>🛍️</span><p><strong>Provisions</strong><small>Daily essentials</small></p></div>
+      <div><span>🥤</span><p><strong>Drinks</strong><small>Something refreshing</small></p></div>
+      <div><span>🏠</span><p><strong>Rentals</strong><small>Ask about availability</small></p></div>
+    </section>
+
+    <section class="shop-section" id="shop">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">MADE FOR EVERYDAY LIFE</span>
+          <h2 id="sectionTitle">Shop our collection</h2>
+          <p>Take a look around and find what you need.</p>
+        </div>
+        <select id="sortSelect" aria-label="Sort products">
+          <option value="featured">Featured items</option>
+          <option value="low">Price: Low to high</option>
+          <option value="high">Price: High to low</option>
+          <option value="name">Name: A to Z</option>
+        </select>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <p class="empty-message hidden" id="emptyProducts">No products found. Try another search.</p>
+    </section>
+
+    <section class="about-section">
+      <div>
+        <span class="eyebrow">A LITTLE ABOUT US</span>
+        <h2>Your neighbourhood shop, with more to offer.</h2>
+      </div>
+      <p>At Omoola Fashion Design & More, we bring different everyday needs together. Whether you're looking for fashion, picking up provisions, buying drinks or asking about a rental, we're happy to help. Contact us if you need something specific.</p>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div>
+        <span class="eyebrow">WE'RE HERE TO HELP</span>
+        <h2>Let's talk about your order.</h2>
+        <p>Questions about a product, delivery or rental? Get in touch with us.</p>
+      </div>
+      <div class="contact-details">
+        <p>📞 <a href="tel:08165967407">08165967407</a></p>
+        <p>✉️ <a href="mailto:rabosede92@gmail.com">rabosede92@gmail.com</a></p>
+        <p>📍 No. 6 Olaosebikan Close, Abule-Oba, Ibafo, Ogun State</p>
+        <a class="primary-button link-button" href="https://wa.me/2348165967407" target="_blank" rel="noopener">Chat with us on WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="#" class="brand footer-brand">
+      <span class="brand-mark">O</span>
+      <span>OMOOLA<small>FASHION DESIGN & MORE</small></span>
+    </a>
+    <p>Fashion, provisions, drinks & rentals.</p>
+    <p>© <span id="year"></span> Omoola Fashion Design & More. All rights reserved.</p>
+  </footer>
+
+  <!-- Shopping cart drawer -->
+  <div class="overlay hidden" id="cartOverlay">
+    <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+      <div class="drawer-heading">
+        <h2 id="cartTitle">Your Cart</h2>
+        <button class="close-button" data-close="cartOverlay" aria-label="Close cart">✕</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-bottom">
+        <div class="total-line"><span>Subtotal</span><strong id="cartSubtotal">₦0</strong></div>
+        <p class="muted">Delivery charges, if applicable, will be confirmed with the shop.</p>
+        <button class="primary-button full-button" id="checkoutButton">Continue to Checkout</button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Checkout -->
+  <div class="overlay hidden" id="checkoutOverlay">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+      <div class="drawer-heading">
+        <h2 id="checkoutTitle">Place Your Order</h2>
+        <button class="close-button" data-close="checkoutOverlay" aria-label="Close checkout">✕</button>
+      </div>
+      <p class="muted">Enter your details so the shop can contact you about your order.</p>
+      <form id="checkoutForm" class="checkout-form">
+        <label>Full name<input name="customerName" required maxlength="100" placeholder="Your full name"></label>
+        <label>Phone number<input name="phone" required type="tel" maxlength="20" placeholder="Your phone number"></label>
+        <label>Email address (optional)<input name="email" type="email" maxlength="150" placeholder="you@example.com"></label>
+        <label>Delivery address or pickup details<textarea name="address" required maxlength="500" rows="3" placeholder="Where should your order go?"></textarea></label>
+        <label>Order notes (optional)<textarea name="notes" maxlength="500" rows="2" placeholder="Sizes, preferences or other requests"></textarea></label>
+        <label>Preferred contact method
+          <select name="contactMethod">
+            <option value="WhatsApp">WhatsApp</option>
+            <option value="Phone call">Phone call</option>
+          </select>
+        </label>
+        <div class="checkout-summary">
+          <span>Order total</span><strong id="checkoutTotal">₦0</strong>
+        </div>
+        <button class="primary-button full-button" type="submit">Confirm Order</button>
+        <p class="muted small">No online payment is collected on this demo website. The shop will confirm availability and payment details.</p>
+      </form>
+    </section>
+  </div>
+
+  <!-- Order history -->
+  <div class="overlay hidden" id="ordersOverlay">
+    <section class="modal orders-modal" role="dialog" aria-modal="true" aria-labelledby="ordersTitle">
+      <div class="drawer-heading">
+        <h2 id="ordersTitle">My Orders</h2>
+        <button class="close-button" data-close="ordersOverlay" aria-label="Close orders">✕</button>
+      </div>
+      <p class="muted">Orders saved on this browser will appear here.</p>
+      <div id="orderHistory"></div>
+    </section>
+  </div>
+
+  <!-- Product and rental details -->
+  <div class="overlay hidden" id="detailOverlay">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <div class="drawer-heading">
+        <h2 id="detailTitle">Product details</h2>
+        <button class="close-button" data-close="detailOverlay" aria-label="Close details">✕</button>
+      </div>
+      <div id="detailContent"></div>
+    </section>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
